@@ -1,0 +1,6 @@
+Date: 11/27/2020-11/28/2020 Atmospheric pressure: 725.228
+Date: 11/29/2020-11/30/2020 Atmospheric pressure: 724.931
+Date: 11/30/2020-12/01/2020 Atmospheric pressure: 723.36
+Date: 12/01/2020-12/02/2020 Atmospheric pressure: 722.495
+Date: 12/02/2020-12/03/2020 Atmospheric pressure: 722.397
+Date: 12/03/2020-12/05/2020 Atmospheric pressure: 718.109
