@@ -54,9 +54,39 @@ def getSolarFlare():
         f.write("Date: " + dates[num] + " Time: " + str(times[num]) + "\n")
     f.close()
 
+def getAsteroids():
+    url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=' + API_KEY
+    data = urllib.request.urlopen(url).read().decode()
+    obj = json.loads(data)
+    neos = obj['near_earth_objects']
+    diams = []
+    danger = []
+    dates = []
+    vels = []
+    missdist = []
+    for item in neos:
+        for inst in neos[item]:
+            min = inst['estimated_diameter']['feet']['estimated_diameter_min']
+            max = inst['estimated_diameter']['feet']['estimated_diameter_max']
+            estimatedDiam = int(float(max) - float(min))
+            diams.append(estimatedDiam)
+            isDangerous = inst['is_potentially_hazardous_asteroid']
+            danger.append(isDangerous)
+            date = inst['close_approach_data'][0]['close_approach_date']
+            dates.append(date)
+            vel = inst['close_approach_data'][0]['relative_velocity']['miles_per_hour']
+            vels.append(vel.split(".")[0])
+            miss = inst['close_approach_data'][0]['miss_distance']['miles']
+            missdist.append(miss.split(".")[0])
+    f = open("SpaceWeather.txt", 'w')
+    f.write("Nearby Objects to Earth (NEOs): \n")
+    for num in range(len(dates)):
+        f.write("Date: " + dates[num] + ". Estimated Diameter: " + str(diams[num]) + " miles. Velocity: " + str(vels[num]) + " miles per hour. Miss Distance: " + str(missdist[num]) + " miles. Dangerous: " + str(danger[num]) + "\n")
+    f.close()
+
 
 def main():
-    print("Commands:\nM - Mars Weather\nS - Solar Flares\nQ - Quit\n")
+    print("Commands:\nM - Mars Weather\nS - Solar Flares\nA - Asteroids\nQ - Quit\n")
     val = input("Enter your value: ")
     if val == "M":
         getMarsData()
@@ -64,6 +94,10 @@ def main():
         main()
     elif val == "S":
         getSolarFlare()
+        print("Success! Open SpaceWeather.txt to see data\n")
+        main()
+    elif val == "A":
+        getAsteroids()
         print("Success! Open SpaceWeather.txt to see data\n")
         main()
     elif val == "Q":

@@ -1,7 +1,24 @@
-This week's weather on Mars: 
-Date: 11/27/2020-11/28/2020 Atmospheric pressure: 725.228
-Date: 11/29/2020-11/30/2020 Atmospheric pressure: 724.931
-Date: 11/30/2020-12/01/2020 Atmospheric pressure: 723.36
-Date: 12/01/2020-12/02/2020 Atmospheric pressure: 722.495
-Date: 12/02/2020-12/03/2020 Atmospheric pressure: 722.397
-Date: 12/03/2020-12/05/2020 Atmospheric pressure: 718.109
+Nearby Objects to Earth (NEOs): 
+Date: 2015-09-08. Estimated Diameter: 938miles. Velocity: 40550miles per hour. Miss Distance: 28142173miles. Dangerous: True
+Date: 2015-09-08. Estimated Diameter: 680miles. Velocity: 44178miles per hour. Miss Distance: 24087116miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 54miles. Velocity: 42845miles per hour. Miss Distance: 45713418miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 148miles. Velocity: 43586miles per hour. Miss Distance: 2502653miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 283miles. Velocity: 35356miles per hour. Miss Distance: 5023451miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 492miles. Velocity: 27024miles per hour. Miss Distance: 15655677miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 235miles. Velocity: 14706miles per hour. Miss Distance: 7394260miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 310miles. Velocity: 26744miles per hour. Miss Distance: 10526048miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 856miles. Velocity: 37937miles per hour. Miss Distance: 26073401miles. Dangerous: False
+Date: 2015-09-08. Estimated Diameter: 142miles. Velocity: 42720miles per hour. Miss Distance: 15837060miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 1487miles. Velocity: 2601miles per hour. Miss Distance: 46307725miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 449miles. Velocity: 19603miles per hour. Miss Distance: 29873676miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 49miles. Velocity: 18093miles per hour. Miss Distance: 1522788miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 59miles. Velocity: 7867miles per hour. Miss Distance: 6437305miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 205miles. Velocity: 16266miles per hour. Miss Distance: 10163584miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 283miles. Velocity: 6028miles per hour. Miss Distance: 26917740miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 155miles. Velocity: 15615miles per hour. Miss Distance: 7110701miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 34miles. Velocity: 29554miles per hour. Miss Distance: 21100415miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 6miles. Velocity: 30155miles per hour. Miss Distance: 11202499miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 391miles. Velocity: 41407miles per hour. Miss Distance: 38950707miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 780miles. Velocity: 85784miles per hour. Miss Distance: 31484757miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 138miles. Velocity: 60821miles per hour. Miss Distance: 37811334miles. Dangerous: False
+Date: 2015-09-07. Estimated Diameter: 46miles. Velocity: 44911miles per hour. Miss Distance: 42964483miles. Dangerous: False
