@@ -28,12 +28,49 @@ def getMarsData():
         avg = obj[num]["PRE"]["av"]
         temps.append(avg)
     f = open("SpaceWeather.txt", 'w')
+    f.write("This week's weather on Mars: \n")
     for num in range(len(keys)):
         f.write("Date: " + dates[num] + " Atmospheric pressure: " + str(temps[num]) + "\n")
     f.close()
 
+def getSolarFlare():
+    url = 'https://api.nasa.gov/DONKI/FLR?startDate=yyyy-MM-dd&endDate=yyyy-MM-dd&api_key=' + API_KEY
+    data = urllib.request.urlopen(url).read().decode()
+    obj = json.loads(data)
+    dates = []
+    times = []
+    for item in obj:
+        lastFlare = item['flrID']
+        day = lastFlare.split("-")
+        date = day[1] + "/" + day[2][0:2] + "/" + day[0]
+        dates.append(date)
+    
+        peakTime = item['peakTime']
+        timeFlare = peakTime.split("T")[1][:5]
+        times.append(timeFlare)
+    f = open("SpaceWeather.txt", 'w')
+    f.write("Most recent Solar Flares: \n")
+    for num in range(len(dates)):
+        f.write("Date: " + dates[num] + " Time: " + str(times[num]) + "\n")
+    f.close()
+
 
 def main():
-    getMarsData()
+    print("Commands:\nM - Mars Weather\nS - Solar Flares\nQ - Quit\n")
+    val = input("Enter your value: ")
+    if val == "M":
+        getMarsData()
+        print("Success! Open SpaceWeather.txt to see data\n")
+        main()
+    elif val == "S":
+        getSolarFlare()
+        print("Success! Open SpaceWeather.txt to see data\n")
+        main()
+    elif val == "Q":
+        pass
+    else:
+        print("Invalid input\n")
+        main()
+
 
 main()
