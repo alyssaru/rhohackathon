@@ -2,10 +2,29 @@ import requests
 import urllib.request
 from bs4 import BeautifulSoup
 import json
+import plotly.express as px
+import plotly.graph_objects as go
 
 API_KEY = '6PeOM13XMqiUJls95ru5LIVliZECHIPAYWMgrVP3'
 URL_START = 'https://api.nasa.gov/planetary/apod?'
 
+def graphBar(xdata, ydata, xlabel, ylabel, title):
+    fig = px.bar(xdata, x = xdata, y = ydata)
+    fig.update_layout(xaxis_title = xlabel, yaxis_title = ylabel)
+    fig.show()
+
+def graphPlot(xdata, ydata, xlabel, ylabel):
+    fig = px.scatter(x=xdata, y=ydata)
+    fig.update_layout(xaxis_title = xlabel, yaxis_title = ylabel)
+    fig.show()
+
+def table(xdata, ydata, xlabel, ylabel):
+    fig = go.Figure(data=[go.Table(header=dict(values=[xlabel, ylabel]), cells=dict(values=[xdata, ydata]))])
+    fig.show()
+
+def tableFive(data1, data2, data3, data4, data5, l1, l2, l3, l4, l5):
+    fig = go.Figure(data=[go.Table(header=dict(values=[l1, l2, l3, l4, l5]), cells=dict(values=[data1, data2, data3, data4, data5]))])
+    fig.show()
 
 def getMarsData():
     url = 'https://api.nasa.gov/insight_weather/?api_key=' + API_KEY + '&feedtype=json&ver=1.0'
@@ -31,6 +50,7 @@ def getMarsData():
     f.write("This week's weather on Mars: \n")
     for num in range(len(keys)):
         f.write("Date: " + dates[num] + " Atmospheric pressure: " + str(temps[num]) + "\n")
+    graphBar(dates, temps, "Dates", "Atmospheric Pressure", "Mars Weather")
     f.close()
 
 def getSolarFlare():
@@ -53,6 +73,7 @@ def getSolarFlare():
     for num in range(len(dates)):
         f.write("Date: " + dates[num] + " Time: " + str(times[num]) + "\n")
     f.close()
+    table(dates, times, "Date", "Peak Time")
 
 def getAsteroids():
     url = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=' + API_KEY
@@ -83,28 +104,21 @@ def getAsteroids():
     for num in range(len(dates)):
         f.write("Date: " + dates[num] + ". Estimated Diameter: " + str(diams[num]) + " miles. Velocity: " + str(vels[num]) + " miles per hour. Miss Distance: " + str(missdist[num]) + " miles. Dangerous: " + str(danger[num]) + "\n")
     f.close()
-
+    tableFive(dates, diams, vels, missdist, danger, "Date", "Diameter (mi)", "Velocity (mph)", "Miss distance (mi)", "Dangerous")
 
 def main():
     print("Commands:\nM - Mars Weather\nS - Solar Flares\nA - Asteroids\nQ - Quit\n")
     val = input("Enter your value: ")
-    if val == "M":
-        getMarsData()
-        print("Success! Open SpaceWeather.txt to see data\n")
-        main()
-    elif val == "S":
-        getSolarFlare()
-        print("Success! Open SpaceWeather.txt to see data\n")
-        main()
-    elif val == "A":
-        getAsteroids()
-        print("Success! Open SpaceWeather.txt to see data\n")
-        main()
-    elif val == "Q":
-        pass
-    else:
-        print("Invalid input\n")
-        main()
-
+    while val != "Q":
+        if val == "M":
+            getMarsData()
+        elif val == "S":
+            getSolarFlare()
+        elif val == "A":
+            getAsteroids()
+        else:
+            print("Invalid input\n")
+        print("\nCommands:\nM - Mars Weather\nS - Solar Flares\nA - Asteroids\nQ - Quit\n")
+        val = input("Enter your value: ")
 
 main()
